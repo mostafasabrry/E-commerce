@@ -1,0 +1,21 @@
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'ngx-toastr/toastr';
+h1{
+    color: #15803D;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+.btn-main{
+   @apply bg-green-900 text-white px-4 py-2 rounded-sm  hover:bg-green-600 duration-500 transition-colors ;
+}
+
+body{
+    font-family: "Montserrat", serif;
+}

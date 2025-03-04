@@ -1,0 +1,25 @@
+<section>
+    
+     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        @for (cat of dataOfCategories;track $index) {
+               
+
+            <div (click)="reload()" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-green-500 hover:shadow-lg transition-shadow duration-500 dark:bg-gray-800 dark:border-gray-700">
+                <div>
+                    <img class="w-full h-[300px] " [src]="cat.image"  alt="" />
+                </div>
+        
+                <div class="p-2">
+                   
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-green-800 text-center dark:text-white">{{cat.name}}</h5>
+                  
+                    
+                </div>
+            </div>
+        }
+     
+     </div>
+
+ 
+    </section>
+    <ngx-spinner name="load2" bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#fff" type = "ball-circus" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

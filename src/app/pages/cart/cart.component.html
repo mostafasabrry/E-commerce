@@ -1,0 +1,47 @@
+@if (userCart.totalCartPrice!==0&& !msgClear) {
+    <section class="bg-gray-50 rounded shadow border p-4 mx-auto w-[80%]">
+        <h1 class="text-center text-green-600 text-3xl">Shop Cart</h1>
+        <span class="text-green-600 text-xl ">Total Cart Price : {{userCart.totalCartPrice}}</span>
+    
+        @for (product of userCart.products; track product.product.id) {
+            <div class="grid md:grid-cols-[20%_minmax(0,1fr)] my-4 gap-2 border-b">
+               
+               <div>
+                   <img [src]="product.product.imageCover" class="w-full h-[120px] object-contain" [alt]="product.product.title">
+               </div>
+                  
+             
+                <div class="flex justify-between items-center">
+                 
+               <div>
+                   <h3>Title: {{product.product.title}}</h3>
+                   <h4>Price: {{product.price |currency:'GBP'}}</h4>
+                   <button (click)="removeItem(product.product.id)" class="text-red-800"> <i class="fas fa-trash-can"></i>Remove</button>
+               </div>
+                
+              
+               <div class="flex items-center gap-4">
+                       <button (click)="updataCount(product.product.id,product.count+1)" class="text-green-600 text-3xl "><i class="fa-regular fa-square-plus"></i></button>
+                       <span>count: {{product.count}}</span>
+                       <button (click)="updataCount(product.product.id,product.count-1)" class="text-green-600 text-3xl "><i class="fa-regular fa-square-minus"></i></button>
+               </div>
+               </div> 
+           </div>
+        }
+    
+    
+       <div class="flex justify-between">
+        <button [routerLink]="['/checkout',userCart._id]" class="btn-main">Checkout</button>
+        <button (click)="clearCart()" class="bg-red-900 text-white px-4 py-2 rounded-sm  hover:bg-red-600 duration-500 transition-colors">clearCart</button>
+       </div>
+        
+    </section>
+}
+@else {
+    <section class="bg-gray-50 rounded shadow border p-4 mx-auto w-[80%]">
+        <h1 class="text-center text-green-600 text-3xl">Cart Empty</h1>
+        <button routerLink="/home" class="btn-main">shop now</button>
+    </section>
+}
+
+
